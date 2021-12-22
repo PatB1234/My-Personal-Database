@@ -6,32 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
+    <link rel = "stylesheet" href = "style.css">
 </head>
 <body>
 
-    <button onclick="clearEmailPwd()">Clear the email and password databse?</button>
-    <br/>
-    <button onclick="createEmailPwdDB()">Create a databse for email and passwords if not exists?</button>
+    <div align = "center">
 
-    <form method = "post" action = "/addEmailPwd">
-        
-        <label>Email</label>
-        <input name = "email"></input>
+
+        <button onclick="createEmailPwdDB()">Create a databse for email and passwords if not exists?</button>
         <br/>
-        <label>Password</label>
-        <input name = "password"></input>
+        <button onclick="clearEmailPwd()">Clear the email and password databse?</button>
+
+        <form method = "post" action = "/addEmailPwd">
+            
+            <label>Email</label>
+            <input name = "email"></input>
+            <br/>
+            <label>Password</label>
+            <input name = "password" type="password"></input>
+            <br/>
+            <label>Type</label>
+            <input name = "type"></input>
+            <input type="submit" value="Submit" name="action"></input>
+        </form>
+
+        <h1>Retrive email and password data</h1>
+        <textarea id = "emailpwd" style = "height: 500px; resize: none; width: 500px" readonly></textarea>
         <br/>
-        <label>Type</label>
-        <input name = "type"></input>
-        <input type="submit" value="Submit" name="action"></input>
-    </form>
+        <button onclick = "addEmailPWD()">Retrive Data</button>
 
-    <h1>Retrive email and password data</h1>
-    <textarea id = "emailpwd" style = "height: 500px; resize: none; width: 500px" readonly></textarea>
-    <br/>
-    <button onclick = "addEmailPWD()">Retrive Data</button>
-
+    </div>
     <script src = "https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src = "index.js"></script>
 </body>

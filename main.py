@@ -31,5 +31,4 @@ def add_email_pwd(email: str = Form(...), password: str = Form(...), type: str =
 @app.get("/emailPwd")
 def getEmailPWD():
     
-    print(get_email_pwd())
     return get_email_pwd()
