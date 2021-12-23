@@ -25,3 +25,31 @@ function addEmailPWD() {
         // always executed
     });
 }
+
+function createPeopleDatabase() {
+
+    axios.get("/dbPeopleDetails");
+}
+
+function clearPeopleDB() {
+
+    axios.get("/clearPeopleDB");
+}
+
+function getPeopleDBDetails() {
+
+    axios.get('/peopleDetailsFromDatabase')
+    .then(function (response) {
+        console.log(response);
+        document.getElementById("peopledb").innerHTML = response.data.map((v) => {
+            return `Name: ${v.name} Email: ${v.email} Notes: ${v.notes}`
+        }).join("\n");
+
+    })
+    .catch(function (error) {
+        console.log(error);
+    })
+    .then(function () {
+        // always executed
+    });
+}

@@ -32,3 +32,24 @@ def add_email_pwd(email: str = Form(...), password: str = Form(...), type: str =
 def getEmailPWD():
     
     return get_email_pwd()
+
+
+@app.get("/dbPeopleDetails")
+def createPeopleDetailsDB():
+
+    return create_people_database()
+
+@app.get("/clearPeopleDB")
+def clearPeopleDatabase():
+
+    return clear_people_database()
+
+@app.post("/addPeopleDetails")
+def addPeopleDetails(name: str = Form(...), email: str = Form(...), notes: str = Form(...)):
+
+    return add_people_details(name, email, notes)
+
+@app.get("/peopleDetailsFromDatabase")
+def getPeopleFromDatabase():
+
+    return get_people_from_db()

@@ -37,3 +37,34 @@ def get_email_pwd():
                 f"SELECT * FROM EMAIL_PASSWORD;"
             ).fetchall()
         ]
+
+def create_people_database():
+
+    database = driver.connect(DATABASE_URL)
+    cursor = database.cursor()
+    cursor.execute("CREATE TABLE IF NOT EXISTS PEOPLE (NAME TEXT, EMAIL TEXT, NOTES TEXT)")
+
+def clear_people_database():
+
+    database = driver.connect(DATABASE_URL)
+    cursor = database.cursor()
+    cursor.execute("DELETE FROM PEOPLE;")
+    database.commit()
+
+def add_people_details(name: str, email: str, notes: str):
+
+    database = driver.connect(DATABASE_URL)
+    cursor = database.cursor()
+    cursor.execute(f"INSERT INTO PEOPLE (Name, Email, Notes)  VALUES ('{name}', '{email}', '{notes}'); ")
+    database.commit()
+
+def get_people_from_db():
+
+    with driver.connect(DATABASE_URL) as mdb:
+
+        return [
+            dict(name = m[0], email = m[1], notes = m[2])
+            for m in mdb.execute(
+                f"SELECT * FROM PEOPLE;"
+            ).fetchall()
+        ]

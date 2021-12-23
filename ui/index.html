@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <link rel = "stylesheet" href = "style.css">
 </head>
 <body>
@@ -27,6 +28,7 @@
             <br/>
             <label>Type</label>
             <input name = "type"></input>
+            <br>
             <input type="submit" value="Submit" name="action"></input>
         </form>
 
@@ -35,7 +37,42 @@
         <br/>
         <button onclick = "addEmailPWD()">Retrive Data</button>
 
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+
+        <h1>People detail</h1>
+
+        <button onclick="createPeopleDatabase()">Create People Databse if not exists?</button>
+        <br/>
+        <button  onclick="clearPeopleDB()">Clear People Database?</button>
+
+        <form method = "post" action = "/addPeopleDetails">
+
+            <label>Name: </label>
+            <input name = "name"></input>
+            <br/>
+            <label>Email: </label>
+            <input name = "email"></input>
+            <br/>
+            <label>Notes:</label>
+            <br/>
+            <input name = "notes" size = "200" maxlength = "184"></input>
+            <br/>
+            <input type="submit" value="Submit" name="action"></input>
+        </form>
+
+        <h1>Retrive People data</h1>
+        <textarea id = "peopledb" style = "height: 500px; resize: none; width: 500px" readonly></textarea>
+        <br/>
+        <button onclick = 'getPeopleDBDetails()'>Retrive Data</button>
+
     </div>
+
     <script src = "https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src = "index.js"></script>
 </body>
