@@ -53,3 +53,17 @@ def addPeopleDetails(name: str = Form(...), email: str = Form(...), notes: str =
 def getPeopleFromDatabase():
 
     return get_people_from_db()
+
+@app.post("/checkLoginDetails")
+def checl_login_details(user: str = Form(...), pwd: str = Form(...)):
+
+    username = "thePatBinDatabase"
+    password = "iAmAPassword"
+
+    if (user == username) and (pwd == password):
+
+        return RedirectResponse("/ui/index.html", status.HTTP_302_FOUND)
+    
+    else:
+
+        return RedirectResponse("/ui/bruh.html", status.HTTP_302_FOUND)
