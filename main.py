@@ -67,3 +67,24 @@ def checl_login_details(user: str = Form(...), pwd: str = Form(...)):
     else:
 
         return RedirectResponse("/ui/bruh.html", status.HTTP_302_FOUND)
+
+
+@app.get("/makeManagementTable")
+def createMangementTable():
+
+    return create_meanagement_tables()
+
+@app.get("/clearManagementTable")
+def clearManagementTable():
+
+    return clear_management_tables()
+
+@app.post("/addManagementTask")
+def addManagementTask(task: str = Form(...)):
+
+    return add_to_managemnent_table(task)
+
+@app.get("/getTasksFromDB")
+def getTasksFromDB():
+
+    return get_management_tasks_from_db()

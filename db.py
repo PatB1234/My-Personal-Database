@@ -68,3 +68,35 @@ def get_people_from_db():
                 f"SELECT * FROM PEOPLE;"
             ).fetchall()
         ]
+
+        
+def create_meanagement_tables():
+
+    database = driver.connect(DATABASE_URL)
+    cursor = database.cursor()
+    cursor.execute("CREATE TABLE IF NOT EXISTS MANAGEMENT (TASK TEXT)")
+
+def clear_management_tables():
+
+    database = driver.connect(DATABASE_URL)
+    cursor = database.cursor()
+    cursor.execute("DELETE FROM MANAGEMENT;")
+    database.commit()
+
+def add_to_managemnent_table(task):
+
+    database = driver.connect(DATABASE_URL)
+    cursor = database.cursor()
+    cursor.execute(f"INSERT INTO MANAGEMENT (Task) VALUES ('{task}'); ")
+    database.commit()
+
+def get_management_tasks_from_db():
+
+    with driver.connect(DATABASE_URL) as mdb:
+
+        return [
+            dict(task = m[0])
+            for m in mdb.execute(
+                f"SELECT * FROM MANAGEMENT;"
+            ).fetchall()
+        ]

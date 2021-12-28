@@ -71,6 +71,29 @@
         <br/>
         <button onclick = 'getPeopleDBDetails()'>Retrive Data</button>
 
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+
+        <h1>Tasks</h1>
+        <br/>
+        <button onclick = "createMangementDB()">Create management Database</button>
+        <br/>
+        <button  onclick = "clearManagementDB()">Clear management Database</button>
+        <br/>
+        <form method = "post" action = "/addManagementTask">
+
+            <label>Add a Task: </label>
+            <input name = "task">
+            <br/>
+            <input type="submit" name="action"></input>
+        </form>
+        <br/>
+        <ul id = "management"></ul>
     </div>
 
     <script src = "https://unpkg.com/axios/dist/axios.min.js"></script>

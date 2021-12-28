@@ -53,3 +53,34 @@ function getPeopleDBDetails() {
         // always executed
     });
 }
+
+function createMangementDB() {
+
+    axios.get("/makeManagementTable");
+}
+
+function clearManagementDB() {
+
+    axios.get("/clearManagementTable");
+}
+
+function retriveManagementTask() {
+
+
+    axios.get("/getTasksFromDB")
+    .then(function (response) {
+        console.log(response);
+        document.getElementById("management").innerHTML = response.data.map(e => {
+            return `<li><input type="checkbox">${e.task}</li>`
+        }).join("\n");
+
+    })
+    .catch(function (error) {
+        console.log(error);
+    })
+    .then(function () {
+        // always executed
+    });
+}
+
+retriveManagementTask()
